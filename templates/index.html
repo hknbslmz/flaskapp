@@ -1,0 +1,173 @@
+{% extends "layout.html" %}
+{% block body %}
+<br>
+<div class= "jumbotron text-center" style="background-position: right;">
+    <h3>-KAYBEDENLER BLOĞUNA HOŞGELDİNİZ-</h3>
+    <hr>
+    <p>bu bloğun içerisinde karşılaşacağınız herşey hiçlik ve bitmişlikle kaplıdır </p>
+                   <p> ...tıpkı sefil hayatlarınız gibi... </p>
+    </div>
+    <br><br><br>
+    <body>
+       
+        <div class="container">
+            <h2><span>GERİ SAYIM</span></h2>
+            <div class="countdown">
+                <div id="year">.</div>
+                <div id="day">.</div>
+                <div id="hour">.</div>
+                <div id="minute">.</div>
+                <div id="second">.</div>
+    
+            </div>
+        </div>
+        <script type="text/javascript">
+        var countDate = new Date('Jan 15, 2034 00:00:00:').getTime();
+        function newYear(){
+        var now = new Date().getTime();
+        gap = countDate - now;
+        var second = 1000;
+        var minute = second * 60;
+        var hour = minute * 60;
+        var day = hour * 24;
+        var year = day * 365
+    
+        var y = Math.floor(gap / (year));
+        var d = Math.floor(gap % (year) / (day));
+        var h = Math.floor(gap % (day) / (hour));
+        var m = Math.floor(gap % (hour) / (minute));
+        var s = Math.floor(gap % (minute) / (second));
+        
+        document.getElementById('year').innerText= y;
+        document.getElementById('day').innerText= d;
+        document.getElementById('hour').innerText= h;
+        document.getElementById('minute').innerText= m;
+        document.getElementById('second').innerText= s;
+        
+    
+    
+    }
+    setInterval(function(){
+    newYear();    
+    },1000)
+    </script>
+    
+    </body>
+
+
+
+
+<style>
+    .jumbotron {
+    padding: 0.5rem 1rem;
+    margin-left: 6.7cm;
+    margin-top: 0cm;
+    background-color: #5052533a;
+    border-radius: 1rem;
+    width: 600px;
+    background-position: center;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+}
+
+</style>
+<style type="text/css">body{
+   
+    color: #ffffff;
+   
+    background-image: url(https://images.pexels.com/photos/1040499/pexels-photo-1040499.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260); 
+    background-size: cover;
+    
+}
+
+</style>
+<style>
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+}
+
+
+.container h2
+{
+    text-align: center;
+    font-style: 10em;
+    line-height: 0.7em;
+    color: #333;
+    margin-top: -80px;
+}
+.container h2 span
+{
+    display: block;
+    font-weight: 300;
+    letter-spacing: 6px;
+    font-size: 0.2em;
+
+
+}
+.countdown
+{
+    display: flex;
+    margin-top: 50px;
+    margin-left: 7.8cm;
+    
+
+}
+.countdown div {
+    position: relative;
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+    background: #ea03031a;
+    color: #fff;
+    margin: 10px;
+    font-style: 3em;
+    font-size: inherit;
+}
+.countdown div::before
+{
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 75px;
+    height: 30px;
+    background-color: rgba(168, 168, 115, 0.719);
+    color: rgb(0, 0, 0);
+    line-height: 35px;
+    font-style: 0.35em;
+    font-weight: 300;
+}
+.countdown #day::before
+{
+    content: 'Gün';
+}
+.countdown #year::before
+{
+    content: 'Yıl';
+}
+.countdown #minute::before
+{
+    content: 'Dakika';
+}
+.countdown #second::before
+{
+    content: 'Saniye';
+}
+.countdown #hour::before
+{
+    content: 'Saat';
+}
+
+</style>
+
+            
+{% endblock  %}

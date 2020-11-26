@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h2>Makaleler</h2>
+<hr>
+<form action="/search" method="post"><input type="text" name="keyword" class=" input" maxlength="64" placeholder="Ara...">
+<button type="submit" class="btn btn-primary ">Ara</button></form>
+
+<br>
+<ul class="list-group">
+{% for article in articles  %}
+<li class="list-group-item" ><a href="article/{{article.id}}"  style='font-size: 25px;' >{{article.title}}</a></li>
+{% endfor %}
+</ul>
+<style type="text/css">body{
+   
+    color: #e6a5a5;
+   
+    background-image: url(https://lh3.googleusercontent.com/proxy/DZAXjgd55dwFu1xA3UfMubxUpInWIll8B_0zWiaQQ6Kmf-t3UJMsojTvnlHxHT1bKoegJz7sj8AQ8dFZupQ1URdnD7Gr8o48jQ); 
+    background-size: auto;
+    }
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color:  #deaeabdc;
+    border: 1px solid rgba(4, 230, 79, 0.246);
+}
+.btn-primary {
+    color: #0c0c0cdc;
+    background-color: #deaeabdc;
+    border-color: #deaeabdc;
+}
+.btn-primary:hover {
+    color: #f30303dc;
+    background-color: #000000;
+    border-color: #fa0606;
+}
+a {
+    color: #000000;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+a:hover {
+    color: #000000;
+    text-decoration: underline;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+</style>
+
+{% endblock body %}

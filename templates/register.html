@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+{% from "includes/formhelpers.html" import render_field %}
+<h3>Kayıt Ol</h3>
+<hr>
+<form method = "post">
+    {{ render_field(form.name,class= "form-control") }}
+    {{ render_field(form.username,class= "form-control") }}
+    {{ render_field(form.date) }}
+    <p class="text-secondary">02/08/1995 şeklinde giriniz</p>
+    {{ render_field(form.location,class= "form-control") }}
+    {{ render_field(form.job,class= "form-control") }}
+    {{ render_field(form.email,class= "form-control") }}
+    {{ render_field(form.password,class= "form-control") }}
+    {{ render_field(form.confirm,class= "form-control") }}
+   <br>
+  
+   
+    <button type="submit" class="btn btn-primary">Kayıt ol</button>
+  
+    <hr>
+</form>
+<style  type="text/css">body{
+   
+    color: #ffffff;
+   
+    background-image: url(https://img.freepik.com/free-photo/empty-wooden-table-with-smoke-float-up-dark-background_68495-135.jpg?size=626&ext=jpg);
+    background-size: cover;
+    }
+    .text-secondary {
+    color: #ffffff9a!important;
+}</style>
+{% endblock  %}

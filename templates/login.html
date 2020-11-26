@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>Giriş Yap</h2>
+<hr>
+{% from "includes/formhelpers.html" import render_field %}
+<form method = "post">
+    {{ render_field(form.username) }}
+    {{ render_field(form.password) }}
+    
+    <br>
+    <button type="submit" class="btn btn-primary">Giriş Yap</button>
+    <hr>
+</form>
+<style type="text/css">body{
+   
+    color: #ffffff;
+   
+    background-image: url(https://my.alfred.edu/zoom/_images/equestrian-thumbnail.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position-y: -2.5cm;
+    }
+    .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: white;
+}</style>
+{% endblock body %}

@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h1>{{article.title|safe}}</h1>
+<hr>
+<h4>{{article.content|safe}}</h4>
+<hr>
+<small>Tarih: {{article.date}}</small>
+<hr>
+<small>Yazar: {{article.author|safe}}</small>
+<hr>
+{% from "includes/formhelpers.html" import render_field %}
+<form method = "post">
+	{% if form=="" %}
+	{{form}}
+	{% else %}
+	{{ render_field(form.comment,style="width: 300px; height: 180px;" )  }}
+	<button type="submit" class="btn btn-light">Yorum yap</button>
+	{% endif %}
+    
+    
+</form>
+
+
+<br>
+<hr>
+<h5>Yorumlar</h5>
+{% for i in comment %}
+<div style="border-bottom:3px solid #CE93D8;width:100%;"></div><br>
+
+<div class="comment byuser comment-author-crim even thread-even depth-1">
+
+	<a name="comment-491295"></a>
+
+	<div id="li-comment-491295" class="comment-container">
+			<div class="comment-header">
+												<img src="{{ url_for('static', filename='img/'+ i.img) }}" class="photo avatar avatar-36 photo" height="50" width="50"></a>
+										
+			
+				<a href="https://www.dizibox.vip/author/crim/">&#160;{{i.username}}</a>					
+
+						<time class="date pull-right" datetime="30.11.2020, 12:31" title="22.11.2020, 12:31">
+				<i class="icon icon-clock"></i> &#160; {{"  **   " +i.created_date}}		</time>
+		</div>
+		<!-- /.comment-head -->
+		<br>
+		<div class="comment-entry" id="comment-491295">
+			<p>&emsp;&emsp;&#160;&#160;&#160;{{i.content}}</p>
+
+					</div><!-- /comment-entry -->
+
+		<div class="comment-bottom-bar">
+			<div class="comment-reply pull-left">
+							</div>
+
+						<div class="comment-votes pull-right">
+				<div class="comment-weight-container ">
+
+	
+		
+
+	
+</div>			</div>
+						
+		</div>
+	</div><!-- /.comment-container --></div>
+{% endfor %}
+ 
+ <div style="border-bottom:3px solid #CE93D8;width:100%;"></div><br>
+
+
+ <style  type="text/css">body{
+   
+    color: #000000;
+   
+    background-image: url(https://images-na.ssl-images-amazon.com/images/I/51yaZyIPcUL._AC_SL1401_.jpg);
+    background-size: cover;
+    }
+	.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: black;
+}
+a {
+    color: #ee0a0a;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+	</style>
+
+
+{% endblock body %}

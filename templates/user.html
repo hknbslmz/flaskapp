@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<body><div id="snippetContent"><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script> <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> <div class="container"><div class="main-body"> <nav aria-label="breadcrumb" class="main-breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="/">Anasayfa</a></li><li class="breadcrumb-item"><a href="javascript:void(0)">Kullanıcı</a></li><li class="breadcrumb-item active" aria-current="page">{{session["username"]}}</li></ol> </nav><hr><div class="row gutters-sm"><div class="col-md-4 mb-3"><div class="card"><div class="card-body"><div class="d-flex flex-column align-items-center text-center">
+
+        <br>
+        <img width="200" height="200" src="{{ url_for('static', filename='img/'+user.img) }}" />
+    <br><a href="/dosyayukleme"><button type="button" class="btn btn-info  btn-sm">fotoğraf değiştir</button></a><div class="mt-3"><h4>{{user.username}}</h4><br><p class="text-secondary mb-1">{{user.name}}</p><p class="text-secondary mb-1">{{user.location}}</p><p class="text-secondary mb-1">{{user.email}}</p><p class="text-secondary mb-1">{{user.job}}</p><p class="text-secondary mb-1">{{user.date}}</p><br><hr><a href="/user/edit/{{user.username}}" class="btn btn-dark  btn-sm">bilgileri güncelle</button></a><br><br><br><br> </div></div></div></div></div><div class="col-md-8"><div>
+
+
+
+<a href="/dashboard" class= "btn btn-warning">kontrol paneli</a>
+<br><br>
+<table  class="table table-hover" >
+  <thead bgcolor=#ffffff>
+    <tr >
+      <th scope="col">id</th>
+      <th scope="col">Başlık</th>
+      <th scope="col">Yazar</th>
+      <th scope="col">Tarih</th>
+    
+    </tr>
+  </thead>
+  <tbody >
+    {% for article in articles  %}
+    <tr>
+      <th scope="row">{{article.id}}</th>
+      <td><a href="/article/{{article.id}}">{{article.title}}</a></td>
+      <td>{{article.author}}</td>
+      <td>{{article.date}}</td>
+      
+    </tr>
+    {% endfor %}
+  
+  </tbody>
+</table>
+
+</div></div></div></div></div>
+
+ </div></body>
+ <style type="text/css">body{
+   
+    color: #9a0505;
+   
+    background-image: url(https://www.popsci.com/resizer/QgEMm6gNVXFYEFCmonq-Tp9_D7g=/760x506/cloudfront-us-east-1.images.arcpublishing.com/bonnier/3NIEQB3SFVCMNHH6MHZ42FO6PA.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    
+    }
+    
+    .card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #e7af88;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+.text-secondary {
+    color: #9a0505!important;
+}
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #860e0e;
+}
+
+.table thead table {
+    vertical-align: bottom;
+    
+    background-color: black;
+}
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #9a0505;
+    background-color: rgb(255, 255, 255);
+}
+a {
+    color: #9a0505;
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    
+}
+.btn-warning {
+    color: #212529;
+    background-color: #a17773;
+    border-color: #714141;
+}
+.btn-warning:hover {
+    color: #212529;
+    background-color: #e41f0d73;
+    border-color: #714141;
+}
+.table tbody tr:hover {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #9a0505;
+    background-color: rgb(224, 17, 17);
+}
+
+
+
+    </style>
+{% endblock body %}

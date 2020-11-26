@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block body %}
+{% from "includes/formhelpers.html" import render_field %}
+<body>
+    <h2>Makale Oluştur</h2>
+    <hr>
+    <form method = "post">
+    {{ render_field(form.title,class= "form-control") }}
+    {{ render_field(form.content,class= "form-control") }}
+        <br>
+        <button type="submit" class="btn btn-success">Makale ekle</button>
+        <hr>
+    </form>  
+</body>
+
+
+<style  type="text/css">body{
+   
+    color: #ffffff;
+   
+    background-image: url(https://lh3.googleusercontent.com/proxy/TLYumRxzhh6MVJFGu98ncjp1IDVz1FCSLazPUBpXiYfyUanqtl5Cq73XtHQ6mtiOBSuWd6JiuqkVA0fw0ZHEAGznmCHFGbdk1ep3WoUyekMAzW4e1Sk0SBHmAdIm0uSHgkcs4qskAyIPdmKm-8NCfA);
+    background-size: cover;
+    }
+    </style>
+{% endblock body %}

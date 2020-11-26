@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block body %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dosya Yükleme</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+    {% with mesajlar = get_flashed_messages() %}
+        {% if mesajlar %}
+          <ul class=flashes>
+          {% for mesaj in mesajlar %}
+            <li>{{ mesaj }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+
+    <form action="/dosyayukle" method="post" enctype=multipart/form-data>    
+        <input type="file" name="dosya">
+        <input type="submit" value="Gönder">
+    </form>
+
+    {% if dosya %}
+        <br>
+        <img width="250px" src="{{ url_for('static', filename='yuklemeler/'+ dosya) }}" />
+    {% endif %}
+<br><br><br><br><hr>
+
+</body>
+{% endblock body %}

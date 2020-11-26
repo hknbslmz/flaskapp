@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h2>Kontrol Paneli</h2>
+<small>hoşgeldin, {{session["username"]}}</small>
+<hr>
+<a href="/addarticle" class= "btn btn-success">makale ekle</a>
+<br><br>
+<table class="table table-hover">
+  <thead bgcolor=#ffffff>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Başlık</th>
+      <th scope="col">Yazar</th>
+      <th scope="col">Tarih</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for article in articles  %}
+    <tr>
+      <th scope="row">{{article.id}}</th>
+      <td><a href="/article/{{article.id}}">{{article.title}}</a></td>
+      <td>{{article.author}}</td>
+      <td>{{article.date}}</td>
+      <td><a href="/edit/{{article.id}}" class= "btn btn-success">Güncelle</a></td>
+      <td><a href="/delete/{{article.id}}" class= "btn btn-danger">Sil</a></td>
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
+<style  type="text/css">body{
+   
+  color: #ffffff;
+ 
+  background-image: url(https://cdn.pizap.com/pizapfiles/images/photo_backgrounds_textures_app05.jpg);
+  background-size: cover;
+  }
+  .text-secondary {
+  color: #ffffff9a!important;
+}
+
+.text-secondary {
+    color: #9a0505!important;
+}
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #860e0e;
+}
+
+.table thead table {
+    vertical-align: bottom;
+    
+    background-color: black;
+}
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #9a0505;
+    background-color: rgb(255, 255, 255);
+}
+a {
+    color: #9a0505;
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover {
+    color: #f1eaea;
+    text-decoration: underline;
+    
+}
+.btn-warning {
+    color: #212529;
+    background-color: #a17773;
+    border-color: #714141;
+}
+.btn-warning:hover {
+    color: #212529;
+    background-color: #e41f0d73;
+    border-color: #714141;
+}
+.btn-danger:hover {
+    color: #fff;
+    background-color: #807676;
+    border-color: #070707;
+}
+.table tbody tr:hover {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #9a0505;
+    background-color: rgb(224, 17, 17);
+}
+
+</style>
+
+{% endblock  %}
